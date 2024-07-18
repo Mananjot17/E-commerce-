@@ -6,9 +6,7 @@ body {
   font-family: Inter;
   margin: 0;
 }
-body {
-  /* background: linear-gradient(to right bottom, #873572, black); */
-}
+
 h1{
   text-align: center;
   
@@ -53,7 +51,7 @@ div{
   transform: scale(1.03);
   text-decoration: none;
 }
-.categories>a:active {
+.categories> a.active {
   transform: scale(0.98);
   background: black;
   color: white;

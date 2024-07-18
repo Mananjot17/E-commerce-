@@ -3,6 +3,27 @@
 async function fetchData(event, category) {
     event.preventDefault();
 
+    const emojis = {
+        'Men': '👨',
+        'Women': '👩',
+        'Kids': '👶'
+    };
+
+    // Remove the active class from all links
+    const links = document.querySelectorAll('.categories > a');
+    links.forEach(link => {
+        link.classList.remove('active');
+        // Remove the emoji from the link text
+        const text = link.textContent.replace(/👨|👩|👶/g, '').trim();
+        link.textContent = text;
+    });
+
+    // Add the active class to the clicked link and add the emoji
+    const clickedLink = event.target;
+    clickedLink.classList.add('active');
+    clickedLink.textContent = `${emojis[category]} ${category}`;
+
+
     try {
         const response = await fetch('https://cdn.shopify.com/s/files/1/0564/3685/0790/files/multiProduct.json');
         if (!response.ok) {
